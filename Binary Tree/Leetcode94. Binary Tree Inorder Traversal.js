@@ -46,13 +46,14 @@ const inorderTraversal = (root) => {
 
 /*
 var inorderTraversal = function(root) {
-    if (!root) return [];
+   // if (!root) return [];
     let res = [];
     
-    res = res.concat(inorderTraversal(root.left));
-    res.push(root.val);
-    res = res.concat(inorderTraversal(root.right));
-    
+    if (root !== null){
+        res = res.concat(inorderTraversal(root.left));
+        res.push(root.val);
+        res = res.concat(inorderTraversal(root.right));
+    }
     return res;
 };
 */
