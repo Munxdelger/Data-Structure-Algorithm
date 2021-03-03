@@ -18,13 +18,12 @@ var lengthOfLongestSubstring = function(s) {
     let alphaCol = {};
     let maxLen = 0;
     for (let i=0; i < s.length; i++) {
-         //  console.log(alphaCol, i);
         if (alphaCol.hasOwnProperty(s[i])){
             if (maxLen < Object.keys(alphaCol).length){
                 maxLen = Object.keys(alphaCol).length;
             }
-            alphaCol = {};
             i = alphaCol[s[i]];
+            alphaCol = {};
         } else {
                 alphaCol[s[i]] = i;
         }
