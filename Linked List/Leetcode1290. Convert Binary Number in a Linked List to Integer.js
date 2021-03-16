@@ -22,7 +22,7 @@ Input: head = [1,0,0,1,0,0,1,1,1,0,0,0,0,0,0]
 Output: 18880
  */
 
-var getDecimalValue = function(head) {
+var getDecimalValue1 = function(head) {
     let p1 = head;
     let s = "";
     
@@ -34,26 +34,17 @@ var getDecimalValue = function(head) {
 };
 
 
-var getDecimalValue1 = function(head) {
+//        1           1         0      1
+// v=0    ^ 
+//   v= v*2 + 1= 1 , 1*2+1= 3,    6,    6*2+1=13
+
+var getDecimalValue = function(head) {
     let p1 = head;
     let number = 0;
-    let len = 0;
     
     while (p1 !== null) {
-        number = number * 10 + p1.val;
-        len++;
+        number = number * 2 + p1.val;
         p1 = p1.next;
     }
-    
-    
-    let res = 0;
-    let i=0;
-    while(i < len ) {
-        res += (number%2)*Math.pow(2,i);
-        number = Math.trunc(number/10);
-        i++;
-    }
-    
-    return res;
-
+    return number;
 };
