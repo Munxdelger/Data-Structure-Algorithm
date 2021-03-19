@@ -26,9 +26,8 @@ Output: [0,0,9,0,0]
 
 const productExceptSelf = nums => {
     let zeroCount = 0;
-    let len = nums.length;
-    
-    let product = 1;
+    let len = nums.length;  
+    let product = 1;   
     
     for (let i=0; i < len; i++) {
         if (nums[i] === 0){
@@ -40,17 +39,9 @@ const productExceptSelf = nums => {
     
     for (let j=0; j < len; j++) {
         if (nums[j] === 0){
-            if (zeroCount > 1){
-                nums[j] = 0;
-            } else {
-                nums[j] = product;
-            }
+            nums[j] = (zeroCount > 1 ? 0 : product);
         } else {
-            if (zeroCount > 0){
-                nums[j] = 0;
-            } else {
-                nums[j] = product/nums[j];
-            }
+            nums[j] = (zeroCount > 0 ? 0 : product/nums[j]);
         }
     } 
     return nums;
